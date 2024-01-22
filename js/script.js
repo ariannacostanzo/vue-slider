@@ -8,7 +8,7 @@ const app = createApp ({
         return {
             destinations,
             currentImageIndex: 0, 
-            interval: null
+            autoplay: null
         }
     },
     methods: {
@@ -29,8 +29,16 @@ const app = createApp ({
             } else {
                 this.currentImageIndex = target
             }
-
+        },
+        stopAutoplay() {
+            clearInterval(this.autoplay);
+        },
+        startAutoplay() {
+            this.autoplay = setInterval(() => 
+            {this.setDisplayedImage('next')
+        }, 3000)
         }
+
     },
     computed: {
         firstIndex() {
@@ -42,9 +50,7 @@ const app = createApp ({
 
     },
     mounted() {
-        interval = setInterval(() => 
-            {this.setDisplayedImage('next')
-        }, 3000)
+        this.startAutoplay();
     }
 
 });

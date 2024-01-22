@@ -31,11 +31,11 @@
   <div class="container" id="root">
     <div id="carousel">
       <!-- Prev button -->
-      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button"></i>
+      <i id="prev-button" class="bi bi-arrow-left-circle-fill" role="button" @click="setDisplayedImage('prev')"></i>
 
       <!-- Gallery -->
       <div class="gallery">
-        <figure v-for="(pic, i) in destinations" v-show="currentImageIndex === i">
+        <figure v-for="(pic, i) in destinations" v-show="currentImageDisplayed(i)">
           <figcaption>
             <h2>{{pic.name}}</h2>
             <h3>{{pic.description}}</h3>
@@ -45,12 +45,12 @@
       </div>
 
       <!-- next button -->
-      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button"></i>
+      <i id="next-button" class="bi bi-arrow-right-circle-fill" role="button" @click="setDisplayedImage('next')"></i>
     </div>
 
     <!-- Thumbnails -->
     <div id="thumbnails">
-      <img v-for="(pic, i) in destinations" :src="`img/${pic.image}`"  :alt="pic.name" :class=" (currentImageIndex === i) ? 'active' : '' ">
+      <img v-for="(pic, i) in destinations" :src="`img/${pic.image}`"  :alt="pic.name" :class=" (currentImageDisplayed(i)) ? 'active' : '' " @click="setDisplayedImage(i)">
     </div>
 
     <!-- <div class="autoplay-controls">

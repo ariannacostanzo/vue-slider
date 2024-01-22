@@ -7,7 +7,7 @@ const app = createApp ({
     data() {
         return {
             destinations,
-            
+            currentImageIndex: 0, 
         }
     },
 

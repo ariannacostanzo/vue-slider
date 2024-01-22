@@ -50,7 +50,7 @@
 
     <!-- Thumbnails -->
     <div id="thumbnails">
-      <img src="img/01.jpg" alt="Svezia" class="active">
+      <img v-for="pic in destinations" :src="`img/${pic.image}`"  :alt="pic.name" class="active">
     </div>
 
     <!-- <div class="autoplay-controls">

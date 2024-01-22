@@ -6,6 +6,7 @@ const app = createApp ({
     name: 'image slider',
     data() {
         return {
+            destinations,
             
         }
     },

@@ -17,14 +17,10 @@ const app = createApp ({
         },
         setDisplayedImage (target) {
             if (target === 'next') {
-                if (this.lastIndex) {
-                    this.currentImageIndex = -1
-                }
+                if (this.lastIndex) this.currentImageIndex = -1
                 this.currentImageIndex++
             } else if (target === 'prev') {
-                if (this.firstIndex) {
-                    this.currentImageIndex = this.destinations.length
-                }
+                if (this.firstIndex) this.currentImageIndex = this.destinations.length
                 this.currentImageIndex--
             } else {
                 this.currentImageIndex = target
